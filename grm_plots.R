@@ -176,7 +176,7 @@ icc <- function(lavFit, Item){
     #compute probabilities for all categories
     P_c <- apply(all_z, 2, pnorm)
 
-    #Kategorienwahrscheinlichkeiten aus Schwellenwahrscheinlichkeiten berechnen
+    #compute category probabilities from cunulative probabilities
     P.1to5 <- function(Prob){
         P1 <- 1 - Prob[,1]
         P2 <- Prob[,1] - Prob[,2]
@@ -200,7 +200,7 @@ icc <- function(lavFit, Item){
     geom_line(aes(Xi, P_Kat5), color="#0A0109") +
     xlab("Xi") + ylab("Kategorienwahrscheinlichkeit") +
     coord_cartesian(xlim=c(-4, 4)) +
-    theme(axis.text.y=element_blank(), axis.title.x=element_blank(), axis.title.y=element_blank(), axis.ticks.y=element_blank()) + annotate("text", label=Itemname, x=0, y=0.95, size=4)
+    annotate("text", label=Item, x=0, y=0.95, size=4)
     ##if you want to print out the thresholds, uncomment the next line
     #print(b)
     Plot
