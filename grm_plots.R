@@ -42,7 +42,7 @@ cumulative_response <- function(lavFit, Item){
 }
 
 #compute score category probabilities from cumulative response probabilities 
-#NOTE: can only be done for items with 5 categories so far
+#NOTE: can only be done for items with 5 categories as of yet
 category_probs <- function(LatentScore, Prob){
     P1 <- 1 - Prob[1]
     P2 <- Prob[1] - Prob[2]
@@ -157,7 +157,7 @@ information_plot <- function(lavFit, Item, from=-3, to=3, se=FALSE, values=FALSE
 }
 
 
-#ICC-Kurven fuer ein Item
+#ICC-curves for an item
 icc <- function(lavFit, Item){
     #simulate values from latent variable
     Xi <- rnorm(200, 0, 2)
